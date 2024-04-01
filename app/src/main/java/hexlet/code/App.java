@@ -59,8 +59,8 @@ public final class App implements Callable<Integer> {
         System.out.println(diff);
 
         // Удаление временных файлов, если они были созданы
-        Files.deleteIfExists(firstFile.toPath());
-        Files.deleteIfExists(secondFile.toPath());
+//        Files.deleteIfExists(firstFile.toPath());
+//        Files.deleteIfExists(secondFile.toPath());
 
         return 0;
     }
