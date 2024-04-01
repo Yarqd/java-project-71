@@ -21,17 +21,17 @@ public class Differ {
         StringBuilder builder = new StringBuilder("{\n");
         for (String key : keys) {
             if (firstMap.containsKey(key) && !secondMap.containsKey(key)) {
-                // Key removed in the second file
+                // Ключ удален во втором файле
                 builder.append("  - ").append(key).append(": ").append(firstMap.get(key)).append("\n");
             } else if (!firstMap.containsKey(key) && secondMap.containsKey(key)) {
-                // Key added in the second file
+                // Ключ, добавленный во второй файл
                 builder.append("  + ").append(key).append(": ").append(secondMap.get(key)).append("\n");
             } else if (!firstMap.get(key).equals(secondMap.get(key))) {
-                // Key value changed in the second file
+                // Значение ключа изменилось во втором файле
                 builder.append("  - ").append(key).append(": ").append(firstMap.get(key)).append("\n");
                 builder.append("  + ").append(key).append(": ").append(secondMap.get(key)).append("\n");
             } else {
-                // Key value unchanged
+                // Значение ключа не изменилось
                 builder.append("    ").append(key).append(": ").append(firstMap.get(key)).append("\n");
             }
         }
