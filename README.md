@@ -7,3 +7,6 @@ This programme calculates differences between two .json files.
 
 An example of how the application works:
 https://asciinema.org/a/nSFSAEnUd0UGtbdM0Muhn9GQb
+
+This programme also works with .yml files
+https://asciinema.org/a/hAi3unvOMaLx26pl1yT8e6IL1

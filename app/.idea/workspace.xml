@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="50fbb67f-5472-4f65-98f5-25cd5db94dbd" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/Parser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/file1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/file1.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/file2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/file2.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
