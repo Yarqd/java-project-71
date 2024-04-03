@@ -6,8 +6,6 @@ import picocli.CommandLine.Parameters;
 import picocli.CommandLine;
 import java.io.File;
 import java.util.concurrent.Callable;
-
-// Импорт необходим для работы с содержимым файла
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -21,7 +19,7 @@ public final class App implements Callable<Integer> {
     @Parameters(index = "1", description = "path to second file")
     private File secondFile;
 
-    @Option(names = {"-f", "--format"}, description = "output format [default: stylish]")
+    @Option(names = {"-f", "--format"}, description = "output format [default: ${DEFAULT-VALUE}]")
     private String format = "stylish";
 
     @Override
@@ -29,39 +27,26 @@ public final class App implements Callable<Integer> {
         String firstFilePath = firstFile.getPath();
         String secondFilePath = secondFile.getPath();
 
-        // Предполагается, что у нас уже есть Parser класс с методом convertYamlToJson
         Parser parser = new Parser();
 
-        // Проверка расширения первого файла и конвертация при необходимости
         if (firstFilePath.endsWith(".yaml") || firstFilePath.endsWith(".yml")) {
             String content = Files.readString(Path.of(firstFilePath));
             String json = parser.convertYamlToJson(content);
-            // Запись конвертированного JSON во временный файл
             Path tempFile = Files.createTempFile("firstFile", ".json");
             Files.writeString(tempFile, json);
-            // Замена оригинального файла временным для сравнения
             firstFile = tempFile.toFile();
         }
 
-        // Та же логика для второго файла
         if (secondFilePath.endsWith(".yaml") || secondFilePath.endsWith(".yml")) {
             String content = Files.readString(Path.of(secondFilePath));
             String json = parser.convertYamlToJson(content);
-            // Запись конвертированного JSON во временный файл
             Path tempFile = Files.createTempFile("secondFile", ".json");
             Files.writeString(tempFile, json);
-            // Замена оригинального файла временным для сравнения
             secondFile = tempFile.toFile();
         }
 
-        // Продолжение работы программы уже с файлами в формате JSON
-        String diff = Differ.generate(firstFile, secondFile);
+        String diff = Differ.generate(firstFile, secondFile, format);
         System.out.println(diff);
-
-        // Удаление временных файлов, если они были созданы
-//        Files.deleteIfExists(firstFile.toPath());
-//        Files.deleteIfExists(secondFile.toPath());
-
         return 0;
     }
 

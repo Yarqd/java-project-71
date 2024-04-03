@@ -10,3 +10,6 @@ https://asciinema.org/a/nSFSAEnUd0UGtbdM0Muhn9GQb
 
 This programme also works with .yml files
 https://asciinema.org/a/hAi3unvOMaLx26pl1yT8e6IL1
+
+Working with nested structures
+https://asciinema.org/a/E05p9MRq1USgyLt45jXWMPdG7
