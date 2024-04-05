@@ -2,7 +2,6 @@ package hexlet.code;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.io.File;
 import java.util.List;
 import java.util.Map;
@@ -15,17 +14,44 @@ public class Differ {
 
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
-    // Стилишный форматтер значения
-    private static String stylishFormatter(Object value) throws JsonProcessingException {
+    private static String stylishFormatter(Object value) {
         if (value instanceof String) {
-            return (String) value;
+            return value.toString();
         } else if (value instanceof Boolean || value instanceof Number || value == null) {
-            return OBJECT_MAPPER.writeValueAsString(value);
-        } else if (value instanceof Map || value instanceof List) {
-            String rawJson = OBJECT_MAPPER.writeValueAsString(value);
-            return rawJson.replaceAll("\"([\\w]+)\":", "$1:").replaceAll("\"", "");
+            return String.valueOf(value);
+        } else if (value instanceof Map) {
+            return formatMap((Map<?, ?>) value);
+        } else if (value instanceof List) {
+            return formatList((List<?>) value);
+        } else {
+            throw new IllegalArgumentException("Unsupported type: " + value.getClass());
         }
-        throw new IllegalArgumentException("Unsupported type: " + value.getClass());
+    }
+
+    private static String formatMap(Map<?, ?> map) {
+        StringBuilder sb = new StringBuilder("{");
+        int count = 0;
+        for (Map.Entry<?, ?> entry : map.entrySet()) {
+            if (count > 0) {
+                sb.append(", ");
+            }
+            sb.append(entry.getKey()).append("=").append(stylishFormatter(entry.getValue()));
+            count++;
+        }
+        sb.append("}");
+        return sb.toString();
+    }
+
+    private static String formatList(List<?> list) {
+        StringBuilder sb = new StringBuilder("[");
+        for (int i = 0; i < list.size(); i++) {
+            if (i > 0) {
+                sb.append(", ");
+            }
+            sb.append(stylishFormatter(list.get(i)));
+        }
+        sb.append("]");
+        return sb.toString();
     }
 
     public static String generate(File firstFile, File secondFile, String format) throws Exception {
