@@ -26,13 +26,6 @@ dependencies {
     testImplementation 'org.json:json:20210307'
 }
 
-checkstyle {
-    toolVersion = '8.36.2'
-    configFile = file('config/checkstyle/checkstyle.xml')
-    ignoreFailures = false
-    showViolations = true
-    reportsDir = file("${project.buildDir}/reports/checkstyle")
-}
 
 tasks.withType(Checkstyle) {
     reports {
