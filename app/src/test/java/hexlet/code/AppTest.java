@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.nio.file.Paths;
 
-class DifferTest {
+class AppTest {
 
     private final String basePath = Paths.get("src", "test", "resources").toString();
 

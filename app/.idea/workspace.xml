@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50fbb67f-5472-4f65-98f5-25cd5db94dbd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/formatters/JsonFormatter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/nonexistent.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/formatters/Formatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/formatters/Formatter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/Formatts/PlainFormatter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/Formatts/StylishFormatter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,40 +77,57 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Gradle.AppTest.executor": "Run",
-    "Gradle.AppTest.testCompareJsonAttachedFiles.executor": "Run",
-    "Gradle.AppTest.testCompareJsonFiles.executor": "Run",
-    "Gradle.AppTest.testCompareYmlFiles.executor": "Run",
-    "Gradle.AppTest.testJsonDiffPlain.executor": "Run",
-    "Gradle.DifferTest.executor": "Run",
-    "Gradle.DifferTest.testHandlingNonExistentFiles.executor": "Run",
-    "Gradle.DifferTest.testInvalidJsonContent.executor": "Run",
-    "Gradle.DifferTest.testJsonDiffWithStylishFormatter.executor": "Run",
-    "Gradle.DifferTest.testYamlDiffWithPlainFormatter.executor": "Run",
-    "Gradle.app [:App.main()].executor": "Run",
-    "Gradle.app [build].executor": "Run",
-    "Gradle.app [installDist].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/iaroslav/IdeaProjects/java-project-71/app/src/test/resources",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Gradle.AppTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AppTest.testCompareJsonAttachedFiles.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AppTest.testCompareJsonFiles.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AppTest.testCompareYmlFiles.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AppTest.testHandlingNonExistentFiles.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AppTest.testInvalidJsonContent.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AppTest.testJsonDiffPlain.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AppTest.testJsonDiffWithStylishFormatter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AppTest.testYamlDiffWithPlainFormatter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.DifferTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.DifferTest.testHandlingNonExistentFiles.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.DifferTest.testInvalidJsonContent.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.DifferTest.testJsonDiffWithStylishFormatter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.DifferTest.testYamlDiffWithPlainFormatter.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.app [:App.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.app [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.app [installDist].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/iaroslav/IdeaProjects/java-project-71/app/src/test/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.DifferTest.testYamlDiffWithPlainFormatter">
-    <configuration name="DifferTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.AppTest.testHandlingNonExistentFiles">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hexlet.code.App" />
+      <module name="app.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hexlet.code.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -121,7 +140,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;hexlet.code.DifferTest&quot;" />
+            <option value="&quot;hexlet.code.AppTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -132,7 +151,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="DifferTest.testHandlingNonExistentFiles" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AppTest.testHandlingNonExistentFiles" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -145,7 +164,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;hexlet.code.DifferTest.testHandlingNonExistentFiles&quot;" />
+            <option value="&quot;hexlet.code.AppTest.testHandlingNonExistentFiles&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -156,7 +175,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="DifferTest.testInvalidJsonContent" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AppTest.testJsonDiffWithStylishFormatter" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -169,7 +188,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;hexlet.code.DifferTest.testInvalidJsonContent&quot;" />
+            <option value="&quot;hexlet.code.AppTest.testJsonDiffWithStylishFormatter&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -180,7 +199,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="DifferTest.testJsonDiffWithStylishFormatter" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AppTest.testYamlDiffWithPlainFormatter" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -193,31 +212,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;hexlet.code.DifferTest.testJsonDiffWithStylishFormatter&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="DifferTest.testYamlDiffWithPlainFormatter" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;hexlet.code.DifferTest.testYamlDiffWithPlainFormatter&quot;" />
+            <option value="&quot;hexlet.code.AppTest.testYamlDiffWithPlainFormatter&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -230,11 +225,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.DifferTest.testYamlDiffWithPlainFormatter" />
-        <item itemvalue="Gradle.DifferTest.testJsonDiffWithStylishFormatter" />
-        <item itemvalue="Gradle.DifferTest.testInvalidJsonContent" />
-        <item itemvalue="Gradle.DifferTest.testHandlingNonExistentFiles" />
-        <item itemvalue="Gradle.DifferTest" />
+        <item itemvalue="Gradle.AppTest.testHandlingNonExistentFiles" />
+        <item itemvalue="Gradle.AppTest.testYamlDiffWithPlainFormatter" />
+        <item itemvalue="Gradle.AppTest.testJsonDiffWithStylishFormatter" />
+        <item itemvalue="Gradle.AppTest" />
+        <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
   </component>
