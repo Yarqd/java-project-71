@@ -14,3 +14,4 @@ https://asciinema.org/a/hAi3unvOMaLx26pl1yT8e6IL1
 Working with nested structures
 https://asciinema.org/a/96v2nApXyEvCBFyqDQmkX3OPK
 
+[![asciicast](https://asciinema.org/a/96v2nApXyEvCBFyqDQmkX3OPK.svg)](https://asciinema.org/a/96v2nApXyEvCBFyqDQmkX3OPK)
