@@ -6,12 +6,13 @@
 This programme calculates differences between two .json files. 
 
 An example of how the application works:
-https://asciinema.org/a/nSFSAEnUd0UGtbdM0Muhn9GQb
+[asciicast](https://asciinema.org/a/nSFSAEnUd0UGtbdM0Muhn9GQb.svg)](https://asciinema.org/a/nSFSAEnUd0UGtbdM0Muhn9GQb)
 
-This programme also works with .yml files
-https://asciinema.org/a/hAi3unvOMaLx26pl1yT8e6IL1
+This programme also works with .yml files:
+[asciicast](https://asciinema.org/a/hAi3unvOMaLx26pl1yT8e6IL1.svg)](https://asciinema.org/a/hAi3unvOMaLx26pl1yT8e6IL1)
 
-Working with nested structures
-https://asciinema.org/a/96v2nApXyEvCBFyqDQmkX3OPK
+Working with nested structures:
+[asciicast](https://asciinema.org/a/96v2nApXyEvCBFyqDQmkX3OPK.svg)](https://asciinema.org/a/96v2nApXyEvCBFyqDQmkX3OPK)
 
-[![asciicast](https://asciinema.org/a/96v2nApXyEvCBFyqDQmkX3OPK.svg)](https://asciinema.org/a/96v2nApXyEvCBFyqDQmkX3OPK)
+Flat data output format:
+[asciicast](https://asciinema.org/a/Ucf4hgKeAzR0EMTREI7458rV1.svg)](https://asciinema.org/a/Ucf4hgKeAzR0EMTREI7458rV1)
