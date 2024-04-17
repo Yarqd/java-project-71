@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50fbb67f-5472-4f65-98f5-25cd5db94dbd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/fixtures/fixture1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/fixtures/fixture2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/fixtures/fixture3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,10 +237,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.AppTest" />
-        <item itemvalue="Gradle.AppTest.testJsonDiffWithStylishFormatter" />
-        <item itemvalue="Gradle.AppTest.testYamlDiffWithPlainFormatter" />
         <item itemvalue="Gradle.AppTest.testInvalidJsonContent" />
         <item itemvalue="Gradle.AppTest.testHandlingNonExistentFiles" />
+        <item itemvalue="Gradle.AppTest.testYamlDiffWithPlainFormatter" />
+        <item itemvalue="Gradle.AppTest.testJsonDiffWithStylishFormatter" />
       </list>
     </recent_temporary>
   </component>
