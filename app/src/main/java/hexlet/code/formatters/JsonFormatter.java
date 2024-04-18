@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class JsonFormatter implements Formatter {
+public final class JsonFormatter implements Formatter {
     @Override
     public String format(List<Diff> diffs) throws Exception {
         List<Map<String, Object>> changes = new ArrayList<>();

@@ -55,7 +55,7 @@ public final class StylishFormatter implements Formatter {
             if (count > 0) {
                 sb.append(", ");
             }
-            sb.append(entry.getKey()).append(": ").append(formatValue(entry.getValue()));
+            sb.append(entry.getKey()).append("=").append(formatValue(entry.getValue()));
             count++;
         }
         sb.append("}");
