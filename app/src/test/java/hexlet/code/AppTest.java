@@ -23,9 +23,8 @@ class AppTest {
     void testJsonDiffWithStylishFormatter() throws Exception {
         String firstFilePath = Paths.get(basePath, "file1.json").toString();
         String secondFilePath = Paths.get(basePath, "file2.json").toString();
-        String formatter = "stylish";
         String expected = readFixture("fixtures/fixture1.json");
-        String actual = Differ.generate(firstFilePath, secondFilePath, formatter);
+        String actual = Differ.generate(firstFilePath, secondFilePath, "stylish");
         assertEquals(expected.trim(), actual.trim());
     }
 
@@ -34,9 +33,8 @@ class AppTest {
     void testYamlDiffWithPlainFormatter() throws Exception {
         String firstFilePath = Paths.get(basePath, "file1.yml").toString();
         String secondFilePath = Paths.get(basePath, "file2.yml").toString();
-        String formatter = "plain";
         String expected = readFixture("fixtures/fixture3.json");
-        String actual = Differ.generate(firstFilePath, secondFilePath, formatter);
+        String actual = Differ.generate(firstFilePath, secondFilePath, "plain");
         assertEquals(expected.trim(), actual.trim());
     }
 
@@ -44,8 +42,7 @@ class AppTest {
     void testHandlingNonExistentFiles() {
         String firstFile = Paths.get(basePath, "nonexistent.json").toString();
         String secondFile = Paths.get(basePath, "nonexistent.json").toString();
-        String formatter = "stylish";
-        assertThrows(Exception.class, () -> Differ.generate(firstFile, secondFile, formatter));
+        assertThrows(Exception.class, () -> Differ.generate(firstFile, secondFile, "stylish"));
     }
 
     @Test
