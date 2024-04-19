@@ -52,7 +52,7 @@ class AppTest {
     void testInvalidJsonContent() {
         String firstFile = Paths.get(basePath, "invalid.json").toString();
         String secondFile = Paths.get(basePath, "file2.json").toString();
-        String formatter = "";
+        String formatter = null;
         assertThrows(Exception.class, () -> Differ.generate(firstFile, secondFile, formatter));
     }
 }
