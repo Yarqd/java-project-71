@@ -3,9 +3,6 @@ package hexlet.code;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import hexlet.code.formatters.Formatter;
-import hexlet.code.formatters.StylishFormatter;
-import hexlet.code.formatters.PlainFormatter;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -26,7 +23,7 @@ class AppTest {
     void testJsonDiffWithStylishFormatter() throws Exception {
         String firstFilePath = Paths.get(basePath, "file1.json").toString();
         String secondFilePath = Paths.get(basePath, "file2.json").toString();
-        Formatter formatter = new StylishFormatter();
+        String formatter = "stylish";
         String expected = readFixture("fixtures/fixture1.json");
         String actual = Differ.generate(firstFilePath, secondFilePath, formatter);
         assertEquals(expected.trim(), actual.trim());
@@ -37,7 +34,7 @@ class AppTest {
     void testYamlDiffWithPlainFormatter() throws Exception {
         String firstFilePath = Paths.get(basePath, "file1.yml").toString();
         String secondFilePath = Paths.get(basePath, "file2.yml").toString();
-        Formatter formatter = new PlainFormatter();
+        String formatter = "plain";
         String expected = readFixture("fixtures/fixture3.json");
         String actual = Differ.generate(firstFilePath, secondFilePath, formatter);
         assertEquals(expected.trim(), actual.trim());
@@ -47,7 +44,7 @@ class AppTest {
     void testHandlingNonExistentFiles() {
         String firstFile = Paths.get(basePath, "nonexistent.json").toString();
         String secondFile = Paths.get(basePath, "nonexistent.json").toString();
-        Formatter formatter = new StylishFormatter();
+        String formatter = "stylish";
         assertThrows(Exception.class, () -> Differ.generate(firstFile, secondFile, formatter));
     }
 
@@ -55,7 +52,7 @@ class AppTest {
     void testInvalidJsonContent() {
         String firstFile = Paths.get(basePath, "invalid.json").toString();
         String secondFile = Paths.get(basePath, "file2.json").toString();
-        Formatter formatter = new StylishFormatter();
+        String formatter = "";
         assertThrows(Exception.class, () -> Differ.generate(firstFile, secondFile, formatter));
     }
 }

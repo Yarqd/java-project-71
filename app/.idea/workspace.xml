@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50fbb67f-5472-4f65-98f5-25cd5db94dbd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/FileProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/Differ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/Differ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/formatters/JsonFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/formatters/JsonFormatter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/formatters/StylishFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/formatters/StylishFormatter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +112,7 @@
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AppTest">
+  <component name="RunManager" selected="Gradle.AppTest.testInvalidJsonContent">
     <configuration name="AppTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -238,11 +235,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.AppTest" />
         <item itemvalue="Gradle.AppTest.testInvalidJsonContent" />
         <item itemvalue="Gradle.AppTest.testHandlingNonExistentFiles" />
-        <item itemvalue="Gradle.AppTest.testYamlDiffWithPlainFormatter" />
+        <item itemvalue="Gradle.AppTest" />
         <item itemvalue="Gradle.AppTest.testJsonDiffWithStylishFormatter" />
+        <item itemvalue="Gradle.AppTest.testYamlDiffWithPlainFormatter" />
       </list>
     </recent_temporary>
   </component>

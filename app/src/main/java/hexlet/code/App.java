@@ -5,9 +5,6 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 import java.util.concurrent.Callable;
-import hexlet.code.formatters.StylishFormatter;
-import hexlet.code.formatters.PlainFormatter;
-import hexlet.code.formatters.Formatter;
 
 @Command(name = "gendiff", mixinStandardHelpOptions = true, version = "gendiff 1.0",
         description = "Compares two configuration files and shows a difference.")
@@ -19,19 +16,12 @@ public final class App implements Callable<Integer> {
     @Parameters(index = "1", description = "path to second file")
     private String secondFilePath;
 
-    @Option(names = {"-f", "--format"}, description = "output format [default: ${DEFAULT-VALUE}]")
-    private String format = "stylish";
+    @Option(names = {"-f", "--format"}, description = "output format [default: stylish]", defaultValue = "stylish")
+    private String format;
 
     @Override
     public Integer call() throws Exception {
-        Formatter formatter;
-        if ("plain".equals(format)) {
-            formatter = new PlainFormatter();
-        } else {
-            formatter = new StylishFormatter();
-        }
-
-        String diff = Differ.generate(firstFilePath, secondFilePath, formatter);
+        String diff = Differ.generate(firstFilePath, secondFilePath, format);
         System.out.println(diff);
         return 0;
     }
