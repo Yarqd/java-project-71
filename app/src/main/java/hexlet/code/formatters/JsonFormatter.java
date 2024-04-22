@@ -1,6 +1,6 @@
 package hexlet.code.formatters;
 
-import hexlet.code.Diff;
+import hexlet.code.utils.Diff;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.List;
