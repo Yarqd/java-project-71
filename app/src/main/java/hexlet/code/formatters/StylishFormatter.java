@@ -1,32 +1,35 @@
 package hexlet.code.formatters;
 
-import hexlet.code.utils.Diff;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
-public final class StylishFormatter implements Formatter {
+public class StylishFormatter implements Formatter {
+
     @Override
-    public String format(List<Diff> diffs) {
-        StringBuilder result = new StringBuilder("{\n");
-        for (Diff diff : diffs) {
-            switch (diff.getType()) {
-                case ADDED:
-                    result.append("  + ").append(diff.getKey()).append(": ").append(formatValue(diff.getNewValue())).
-                            append("\n");
+    public final String format(List<Map<String, Object>> diffs) {
+        StringBuilder result = new StringBuilder();
+        result.append("{\n");
+        for (Map<String, Object> diff : diffs) {
+            String key = diff.get("key").toString();
+            String status = diff.get("status").toString();
+            switch (status) {
+                case "added":
+                    result.append("  + ").append(key).append(": ").append(formatValue(diff.get("newValue")))
+                            .append("\n");
                     break;
-                case REMOVED:
-                    result.append("  - ").append(diff.getKey()).append(": ").append(formatValue(diff.getOldValue())).
-                            append("\n");
+                case "removed":
+                    result.append("  - ").append(key).append(": ").append(formatValue(diff.get("oldValue")))
+                            .append("\n");
                     break;
-                case UPDATED:
-                    result.append("  - ").append(diff.getKey()).append(": ").append(formatValue(diff.getOldValue())).
-                            append("\n");
-                    result.append("  + ").append(diff.getKey()).append(": ").append(formatValue(diff.getNewValue())).
-                            append("\n");
+                case "updated":
+                    result.append("  - ").append(key).append(": ").append(formatValue(diff.get("oldValue")))
+                            .append("\n");
+                    result.append("  + ").append(key).append(": ").append(formatValue(diff.get("newValue")))
+                            .append("\n");
                     break;
-                case UNCHANGED:
-                    result.append("    ").append(diff.getKey()).append(": ").append(formatValue(diff.getNewValue())).
-                            append("\n");
+                case "unchanged":
+                    result.append("    ").append(key).append(": ").append(formatValue(diff.get("value"))).append("\n");
                     break;
                 default:
                     break;
@@ -41,36 +44,26 @@ public final class StylishFormatter implements Formatter {
             return formatMap((Map<?, ?>) value);
         } else if (value instanceof List) {
             return formatList((List<?>) value);
+        } else if (value == null) {
+            return "null";
         } else if (value instanceof String) {
             return value.toString();
+        } else if (value instanceof Boolean || value instanceof Number) {
+            return value.toString();
         } else {
-            return String.valueOf(value);
+            return value.toString();
         }
-    }
-
-    private String formatMap(Map<?, ?> map) {
-        StringBuilder sb = new StringBuilder("{");
-        int count = 0;
-        for (Map.Entry<?, ?> entry : map.entrySet()) {
-            if (count > 0) {
-                sb.append(", ");
-            }
-            sb.append(entry.getKey()).append("=").append(formatValue(entry.getValue()));
-            count++;
-        }
-        sb.append("}");
-        return sb.toString();
     }
 
     private String formatList(List<?> list) {
-        StringBuilder sb = new StringBuilder("[");
-        for (int i = 0; i < list.size(); i++) {
-            if (i > 0) {
-                sb.append(", ");
-            }
-            sb.append(formatValue(list.get(i)));
-        }
-        sb.append("]");
-        return sb.toString();
+        return list.stream()
+                .map(item -> item == null ? "null" : item.toString()) // Remove quotes around the strings
+                .collect(Collectors.joining(", ", "[", "]"));
+    }
+
+    private String formatMap(Map<?, ?> map) {
+        return map.entrySet().stream()
+                .map(entry -> entry.getKey().toString() + "=" + formatValue(entry.getValue()))
+                .collect(Collectors.joining(", ", "{", "}"));
     }
 }

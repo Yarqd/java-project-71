@@ -1,10 +1,10 @@
 package hexlet.code.formatters;
 
-import hexlet.code.utils.Diff;
 import java.util.List;
+import java.util.Map;
 
 public interface Formatter {
-    String format(List<Diff> diffs) throws Exception;
+    String format(List<Map<String, Object>> diffs) throws Exception;
 
     static Formatter chooseFormatter(String formatterName) {
         if (formatterName == null || formatterName.isEmpty()) {
