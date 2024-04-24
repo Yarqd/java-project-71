@@ -68,6 +68,6 @@ public class DiffProcessor {
         } else {
             throw new IllegalArgumentException("Unsupported file format: " + filePath);
         }
-        return objectMapper.readValue(new File(filePath), new TypeReference<Map<String, Object>>() {});
+        return objectMapper.readValue(new File(filePath), new TypeReference<Map<String, Object>>() { });
     }
 }
