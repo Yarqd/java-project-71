@@ -17,11 +17,15 @@ import java.util.TreeSet;
 
 public class DiffProcessor {
 
-    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+    private static final ObjectMapper JSON_MAPPER = new ObjectMapper();
+    private static final ObjectMapper YAML_MAPPER = new ObjectMapper(new YAMLFactory());
 
     public static List<Map<String, Object>> process(String firstFilePath, String secondFilePath) throws Exception {
-        TreeMap<String, Object> firstMap = (TreeMap<String, Object>) readData(firstFilePath);
-        TreeMap<String, Object> secondMap = (TreeMap<String, Object>) readData(secondFilePath);
+        Map<String, Object> firstRawMap = readData(firstFilePath);
+        Map<String, Object> secondRawMap = readData(secondFilePath);
+
+        TreeMap<String, Object> firstMap = new TreeMap<>(firstRawMap);
+        TreeMap<String, Object> secondMap = new TreeMap<>(secondRawMap);
 
         SortedSet<String> keys = new TreeSet<>(firstMap.keySet());
         keys.addAll(secondMap.keySet());
@@ -58,9 +62,9 @@ public class DiffProcessor {
     private static Map<String, Object> readData(String filePath) throws IOException {
         ObjectMapper objectMapper;
         if (filePath.endsWith(".json")) {
-            objectMapper = new ObjectMapper();
+            objectMapper = JSON_MAPPER;
         } else if (filePath.endsWith(".yml") || filePath.endsWith(".yaml")) {
-            objectMapper = new ObjectMapper(new YAMLFactory());
+            objectMapper = YAML_MAPPER;
         } else {
             throw new IllegalArgumentException("Unsupported file format: " + filePath);
         }
