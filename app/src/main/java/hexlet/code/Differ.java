@@ -17,4 +17,7 @@ public class Differ {
         Formatter formatter = chooseFormatter(formatterName);
         return formatter.format(diffs);
     }
+    public static String generate(String firstFilePath, String secondFilePath) throws Exception {
+        return generate(firstFilePath, secondFilePath, "stylish");
+    }
 }

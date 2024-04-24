@@ -25,12 +25,8 @@ class AppTest {
         String secondFilePath = Paths.get(basePath, "file2.json").toString();
         String expected = readFixture("fixtures/fixture1.json");
         String formatter = "stylish";
-        String actual = Differ.generate(firstFilePath, secondFilePath, null);
+        String actual = Differ.generate(firstFilePath, secondFilePath, formatter);
         assertEquals(expected.trim(), actual.trim());
-        System.out.println(firstFilePath);
-        System.out.println(secondFilePath);
-        System.out.println(expected);
-        System.out.println(formatter);
     }
 
 
@@ -49,7 +45,7 @@ class AppTest {
         String firstFile = Paths.get(basePath, "nonexistent.json").toString();
         String secondFile = Paths.get(basePath, "nonexistent.json").toString();
         String formatter = "stylish";
-        assertThrows(Exception.class, () -> Differ.generate(firstFile, secondFile, null));
+        assertThrows(Exception.class, () -> Differ.generate(firstFile, secondFile, formatter));
     }
 
     @Test
@@ -57,6 +53,6 @@ class AppTest {
         String firstFile = Paths.get(basePath, "invalid.json").toString();
         String secondFile = Paths.get(basePath, "file2.json").toString();
         String formatter = "stylish";
-        assertThrows(Exception.class, () -> Differ.generate(firstFile, secondFile, null));
+        assertThrows(Exception.class, () -> Differ.generate(firstFile, secondFile, formatter));
     }
 }
