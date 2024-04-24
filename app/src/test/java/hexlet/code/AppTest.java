@@ -24,7 +24,8 @@ class AppTest {
         String firstFilePath = Paths.get(basePath, "file1.json").toString();
         String secondFilePath = Paths.get(basePath, "file2.json").toString();
         String expected = readFixture("fixtures/fixture1.json");
-        String actual = Differ.generate(firstFilePath, secondFilePath, "stylish");
+        String formatter = "stylish";
+        String actual = Differ.generate(firstFilePath, secondFilePath, formatter);
         assertEquals(expected.trim(), actual.trim());
     }
 
@@ -34,7 +35,8 @@ class AppTest {
         String firstFilePath = Paths.get(basePath, "file1.yml").toString();
         String secondFilePath = Paths.get(basePath, "file2.yml").toString();
         String expected = readFixture("fixtures/fixture3.json");
-        String actual = Differ.generate(firstFilePath, secondFilePath, "plain");
+        String formatter = "plain";
+        String actual = Differ.generate(firstFilePath, secondFilePath, formatter);
         assertEquals(expected.trim(), actual.trim());
     }
 
@@ -42,13 +44,15 @@ class AppTest {
     void testHandlingNonExistentFiles() {
         String firstFile = Paths.get(basePath, "nonexistent.json").toString();
         String secondFile = Paths.get(basePath, "nonexistent.json").toString();
-        assertThrows(Exception.class, () -> Differ.generate(firstFile, secondFile, "stylish"));
+        String formatter = "stylish";
+        assertThrows(Exception.class, () -> Differ.generate(firstFile, secondFile, formatter));
     }
 
     @Test
     void testInvalidJsonContent() {
         String firstFile = Paths.get(basePath, "invalid.json").toString();
         String secondFile = Paths.get(basePath, "file2.json").toString();
-        assertThrows(Exception.class, () -> Differ.generate(firstFile, secondFile, "stylish"));
+        String formatter = "stylish";
+        assertThrows(Exception.class, () -> Differ.generate(firstFile, secondFile, formatter));
     }
 }
