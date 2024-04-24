@@ -15,6 +15,8 @@ public interface Formatter {
                 return new StylishFormatter();
             case "plain":
                 return new PlainFormatter();
+            case "json":
+                return new JsonFormatter();
             default:
                 throw new IllegalArgumentException("Unsupported format: " + formatterName);
         }
