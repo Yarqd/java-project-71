@@ -2,8 +2,10 @@ package hexlet.code.utils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,8 +20,8 @@ public class DiffProcessor {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     public static List<Map<String, Object>> process(String firstFilePath, String secondFilePath) throws Exception {
-        TreeMap<String, Object> firstMap = readData(firstFilePath);
-        TreeMap<String, Object> secondMap = readData(secondFilePath);
+        TreeMap<String, Object> firstMap = (TreeMap<String, Object>) readData(firstFilePath);
+        TreeMap<String, Object> secondMap = (TreeMap<String, Object>) readData(secondFilePath);
 
         SortedSet<String> keys = new TreeSet<>(firstMap.keySet());
         keys.addAll(secondMap.keySet());
@@ -53,8 +55,15 @@ public class DiffProcessor {
         return diffs;
     }
 
-    private static TreeMap<String, Object> readData(String filePath) throws Exception {
-        File file = new File(filePath);
-        return OBJECT_MAPPER.readValue(file, new TypeReference<TreeMap<String, Object>>() { });
+    private static Map<String, Object> readData(String filePath) throws IOException {
+        ObjectMapper objectMapper;
+        if (filePath.endsWith(".json")) {
+            objectMapper = new ObjectMapper();
+        } else if (filePath.endsWith(".yml") || filePath.endsWith(".yaml")) {
+            objectMapper = new ObjectMapper(new YAMLFactory());
+        } else {
+            throw new IllegalArgumentException("Unsupported file format: " + filePath);
+        }
+        return objectMapper.readValue(new File(filePath), new TypeReference<Map<String, Object>>() {});
     }
 }
