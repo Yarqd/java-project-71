@@ -15,21 +15,21 @@ public final class PlainFormatter implements Formatter {
 
             switch (status) {
                 case "added":
-                    String addedValue = formatValue(newValue);
-                    result.append(String.format("Property '%s' was added with value: %s\n", key, addedValue));
+                    result.append(String.format("Property '%s' was added with value: %s\n",
+                            key, formatValue(newValue)));
                     break;
-
                 case "removed":
                     result.append(String.format("Property '%s' was removed\n", key));
                     break;
                 case "updated":
-                    String oldValueString = formatValue(oldValue);
-                    String updatedValueString = formatValue(newValue);
-                    result.append(String.format("Property '%s' was updated. From %s to %s\n", key, oldValueString,
-                            updatedValueString));
+                    result.append(String.format("Property '%s' was updated. From %s to %s\n",
+                            key, formatValue(oldValue), formatValue(newValue)));
+                    break;
+                case "unchanged":
+                    // Ignore unchanged properties
                     break;
                 default:
-                    break;
+                    throw new IllegalArgumentException("Unexpected status: " + status);
             }
         }
         return result.toString().trim();
@@ -41,24 +41,9 @@ public final class PlainFormatter implements Formatter {
         } else if (value == null) {
             return "null";
         } else if (value instanceof String) {
-            String str = (String) value;
-            return needsQuoting(str) ? "'" + str + "'" : str;
-        } else if (value instanceof Boolean || value instanceof Number) {
-            return value.toString();
+            return "'" + value + "'";
         } else {
             return String.valueOf(value);
         }
-    }
-
-    private boolean needsQuoting(String str) {
-        try {
-            Double.parseDouble(str);
-            return false;
-        } catch (NumberFormatException e) {
-        }
-        if (str.equalsIgnoreCase("true") || str.equalsIgnoreCase("false")) {
-            return false;
-        }
-        return true;
     }
 }
