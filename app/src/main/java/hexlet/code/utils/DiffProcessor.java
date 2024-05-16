@@ -6,28 +6,11 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
-import java.util.SortedSet;
-import java.util.TreeMap;
-import java.util.TreeSet;
-import java.util.List;
 
 public class DiffProcessor {
 
     private static final ObjectMapper JSON_MAPPER = new ObjectMapper();
     private static final ObjectMapper YAML_MAPPER = new ObjectMapper(new YAMLFactory());
-
-    public static List<Map<String, Object>> process(String firstFilePath, String secondFilePath) throws Exception {
-        Map<String, Object> firstRawMap = readData(firstFilePath);
-        Map<String, Object> secondRawMap = readData(secondFilePath);
-
-        TreeMap<String, Object> firstMap = new TreeMap<>(firstRawMap);
-        TreeMap<String, Object> secondMap = new TreeMap<>(secondRawMap);
-
-        SortedSet<String> keys = new TreeSet<>(firstMap.keySet());
-        keys.addAll(secondMap.keySet());
-
-        return Tree.createTree(firstMap, secondMap, keys);
-    }
 
     private static Map<String, Object> readData(String filePath) throws IOException {
         ObjectMapper objectMapper;
