@@ -16,6 +16,16 @@ public class FileDataProcessor {
     private static final ObjectMapper JSON_MAPPER = new ObjectMapper();
     private static final ObjectMapper YAML_MAPPER = new ObjectMapper(new YAMLFactory());
 
+    public static Map<String, Object> parse(String data, String format) throws Exception {
+        if (format.equals("json")) {
+            return JSON_MAPPER.readValue(data, new TypeReference<Map<String, Object>>() { });
+        } else if (format.equals("yaml")) {
+            return YAML_MAPPER.readValue(data, new TypeReference<Map<String, Object>>() { });
+        } else {
+            throw new IllegalArgumentException("Unsupported format: " + format);
+        }
+    }
+
     public static List<Map<String, Object>> process(Map<String, Object> firstData, Map<String, Object> secondData) {
         List<Map<String, Object>> diffs = new ArrayList<>();
         SortedSet<String> keys = new TreeSet<>(firstData.keySet());
@@ -47,15 +57,5 @@ public class FileDataProcessor {
             diffs.add(diff);
         }
         return diffs;
-    }
-
-    public static Map<String, Object> parse(String data, String format) throws Exception {
-        if (format.equals("json")) {
-            return JSON_MAPPER.readValue(data, new TypeReference<Map<String, Object>>() { });
-        } else if (format.equals("yaml")) {
-            return YAML_MAPPER.readValue(data, new TypeReference<Map<String, Object>>() { });
-        } else {
-            throw new IllegalArgumentException("Unsupported format: " + format);
-        }
     }
 }
